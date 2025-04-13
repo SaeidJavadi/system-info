@@ -1,2 +1,4 @@
 *.txt
 zTemp/
+pyENV39/
+!requirements.txt

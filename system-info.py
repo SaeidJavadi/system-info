@@ -325,21 +325,24 @@ class Windows:
             else:
                 DDR = "Unknown"
             for i in range(len(Capacity)):
-                RAM[f"Size[{i}]"] = f"{Capacity[i]}GB"
-                RAM[f"DeviceLocator[{i}]"] = f"{DeviceLocator[i]}"
-                RAM[f"Manufacturer[{i}]"] = f"{Manufacturer[i]}"
-                RAM[f"Type[{i}]"] = f"{DDR}"
-                RAM[f"PartNumber[{i}]"] = f"{PartNumber[i]}"
-                if PositionInRow:
-                    RAM[f"PositionInRow[{i}]"] = f"{PositionInRow[i]}"
-                RAM[f"SerialNumber[{i}]"] = f"{SerialNumber[i]}"
-                RAM[f"Speed[{i}]"] = f"{Speed[i]} Mhz"
-                RAM[f"TotalWidth[{i}]"] = f"{TotalWidth[i]}"
-                RAM[f"TypeDetail[{i}]"] = f"{TypeDetail[i]}"
-                if Tag:
-                    RAMs[f"{Tag[i]}"] = RAM
-                else:
-                    RAMs[f"{Name[i]}"] = RAM
+                try:
+                    RAM[f"Size[{i}]"] = f"{Capacity[i]}GB"
+                    RAM[f"DeviceLocator[{i}]"] = f"{DeviceLocator[i]}"
+                    RAM[f"Manufacturer[{i}]"] = f"{Manufacturer[i]}"
+                    RAM[f"Type[{i}]"] = f"{DDR}"
+                    RAM[f"PartNumber[{i}]"] = f"{PartNumber[i]}"
+                    if PositionInRow:
+                        RAM[f"PositionInRow[{i}]"] = f"{PositionInRow[i]}"
+                    RAM[f"SerialNumber[{i}]"] = f"{SerialNumber[i]}"
+                    RAM[f"Speed[{i}]"] = f"{Speed[i]} Mhz"
+                    RAM[f"TotalWidth[{i}]"] = f"{TotalWidth[i]}"
+                    RAM[f"TypeDetail[{i}]"] = f"{TypeDetail[i]}"
+                    if Tag:
+                        RAMs[f"{Tag[i]}"] = RAM
+                    else:
+                        RAMs[f"{Name[i]}"] = RAM
+                except:
+                    pass
         return RAMs
 
     def graphic(self):
