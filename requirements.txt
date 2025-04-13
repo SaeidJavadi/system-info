@@ -4,3 +4,4 @@ py-cpuinfo==9.0.0
 pypiwin32==223
 pywin32==310
 wcwidth==0.2.13
+wmi==1.5.1
