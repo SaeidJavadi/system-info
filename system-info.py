@@ -349,9 +349,9 @@ class Windows:
         self.infdb["Machine"] = uname.machine
         # Network
         if '192.168' in self.ip_address():
-            self.infdb["Ip-Address"] = self.ip_address()
+            self.infdb["Ip Address"] = self.ip_address()
         else:
-            self.infdb["Ip-Address"] = socket.gethostbyname(
+            self.infdb["Ip Address"] = socket.gethostbyname(
                 socket.gethostname())
         # self.infdb["Mac-Address"] = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
         Networks = self.network()
