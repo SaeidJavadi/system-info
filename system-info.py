@@ -335,11 +335,15 @@ class Windows:
         installDateWin = datetime.fromtimestamp(secs)
         domain = subprocess.run(["powershell.exe", "(Get-CimInstance Win32_ComputerSystem).Domain"],
                                 stdout=subprocess.PIPE, text=True).stdout.strip()
+        result = subprocess.run('systeminfo | findstr /c:"OS Name"', shell=True, capture_output=True, text=True)
+        output = result.stdout.strip()
+        OS_NAME = str(output.split(":", 1)[1].strip())
         self.infdb["Computer Name"] = uname.node
         self.infdb["WorkGroup"] = domain
         self.infdb["Operation System"] = uname.system
         self.infdb["Release"] = uname.release
         self.infdb["Version"] = uname.version
+        self.infdb["OS Name"] = OS_NAME
         self.infdb["Display Version"] = windowsdetails['DisplayVersion']
         self.infdb["Build Number"] = windowsdetails['BuildNumber']
         self.infdb["System Type"] = platform.architecture()[0]
