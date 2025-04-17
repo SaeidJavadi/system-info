@@ -464,8 +464,17 @@ class ShowGUI:
         t.tag_configure("center", justify='center')
         t.tag_add("center", "1.0", "end")
         t.pack(fill="both", expand=True)
-        with open(f"{self.lst_inf['Computer Name']}_{today.strftime('%Y%m%d')}.txt", 'w+') as w:
-            w.write(str(x))
+        try:
+            desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
+            with open(f"{desktop_path}/{self.lst_inf['Computer Name']}_{today.strftime('%Y%m%d')}.txt", 'w+') as w:
+                w.write(str(x))
+        except:
+            pass
+        try:
+            with open(f"{self.lst_inf['Computer Name']}_{today.strftime('%Y%m%d')}.txt", 'w+') as w:
+                w.write(str(x))
+        except:
+            pass
 
 
 class ExpandoText(Text):
